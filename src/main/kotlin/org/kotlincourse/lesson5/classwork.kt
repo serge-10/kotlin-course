@@ -1,87 +1,77 @@
 package org.sergei.org.kotlincourse.lesson5
 
-//result//un main(){
-//val number = 6
-//if (number > 5) {
-//println("число больше 5")
-// } else {
-//println("Число меньше или равно 5")
-// }
-//al intRange: IntRange = 1..10  //диапозон
-//al intGfngeUntil = 1 until 10
-//al downTo = 10 downTo 1
-//al charRange: CharRange= 'd'..'r'
-//l inRange = 2 in intRange
+class lesson5 {
+}
+//fun main() {
+val sum = 10 + 5
+val diff = 10 - 5
+val product = 10 * 5
+val quotient = 10 / 5
+val remainder = 10 % 5
+val remainder1 = 10 % 6
+val remainder2 = 10 % 4
+val isEqual = 5 == 4
+val isNotEqual = (5 != 5)
+val isGreater = (5 > 3)
+val isLesser = (5 < 3)
+val isLesserOrEqual = (5 >= 5)
+val andResult = false && false
+val orRfsult = true || false
+val notResult = !(5 > 3)
+var number = 5
+//number += 3 // number + 3
+//number -= 2
+// println(sum)
+//println(--number)
 
-//println(intRange)
-//rintln(inRange)
+val example = ((8 + 1) >= 9) || (6 - 2 != 4) && (2 * 3 == 6)
+// (3 + 2 < 6) && (4 * 2 == 8)  true && true = true
+// (10 - 5 >= 5) || (2 * 3 != 6) true || false = false
+// (8 / 2 == 4) && (7 % 3 != 1) true && false = false
+// (9 - 3 >= 6) && (8 / 2 != 4) true && false = false
+// ((3 + 4) < 8) && (12 / 3 == 4) || (5 % 2 != 1) (true && true) || false = true
+// ((10 - 5) >= 5) || (6 * 2 != 12) && !(9 / 3 > 2) (true || true) && false = true
+// ((2 * 5) == 10) && !(7 - 3 < 5) || (8 / 2 == 4) (true && true) ||true = true
+// ((9 + 2) < 12) && (15 % 4 != 3) || !(4 * 2 == 8) false
+// ((var a = 4; a-- == 4) || (5 * 2 != 10)) && (3 + 1 == 4) true
+// (var b = 3; b++ > 3) && (6 / 2 == 3) || (7 - 2 != 5) false
+// (var c = 1; ++c < 3) || ((4 % 2 == 0) && (5 + 0 == 5)) true
+// ((var d = 5; d-- == 5) && (8 / 4 == 2)) || (2 * 3 != 6) true
+// (var e = 2; e++ < 3) && ((7 + 1 == 8) || (4 % 2 != 0)) true
 
-/* val score = 95
- when {
-     score in 90,,100 -> println("Отлично")
-     score in 80..89 -> println("Хорошо")
-     score in 70..79 -> println("Удолетворительно")
-     else -> println("Нужно подучить")
+val name: String? = null
 
- }
-
- val a = 3
- val b = 4
-
- val max = if (a > b){
-     a
- } else {
-     b
- }
-
-
- */
-// val score = 95
-// val result = when {
-//in 90,,100 -> "Отлично"
-// in 80..89 -> "Хорошо"
-// in 70..79 -> "Удолетворительно"
-//  else -> "Нужно подучить"
-
-//  println(result)
-
+val result = name ?: "Unknown"
 
 //}
+// задача
+fun printVolume(userVolume: Int?) {
+    val defaultVolume = 30
+    println()
+}
 
-//fun getTimesOfDay(hour: Int): String{
-//return if (hour in 0.. 5){
-//"Ночь"
-// } if (hour in 5..12) {
-//"Утро"
-// } else if (hour in 12..16){
-//"день"
-// } else {
-//"Вечер"
-//
-
-//n main () {
-
-//
-
-//n checkPassword (password: String) :Boolean {
-//f (password.length <= 8) return false
-//if (checkSymbols(password)) return true
-//return false
-//turn checkSymbols(password)
-//
-
-//fun checkSymbols( password: String) : Boolean {
-//return false
+//fun main(){
+//printPrice(prise: 123.8, s: null)
+//printPrice(prise: null)
 //}
 
+// Задача
+//fun printPrise(prise: Double, s: Int?){
+//val koef = (100 - (s ?: 0)) / 100.0
+//println(prise * koef)
+//}
 
+//fun printSitelang(lang: string?){
+//val defaultlang: String = "Eng"
+//println(lang ?: Defautlang)
+//}
+// задача
+//fun main (){
+//printBoxStuff(stuff: "rus")
+//printBoxStuff(stuff: null)
 
-//fun convertMark(mark: Int) :String {
-//val in 0..20 ->"f"
-//in 21..40 ->"e"
-//in 41..60 ->"d"
-//in 61..80 -> "c"
-//in 81..90 ->"b"
-//in 91..100 ->"a"
-//else -> "Invalid mark"
+//}
+//fun printBpxStuff(stuff: String?){
+//println(stuff ?: throw Exception("Box is empty"))
+
 //}
