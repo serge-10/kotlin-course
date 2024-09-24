@@ -12,6 +12,17 @@ fun definitionSeason(month: Int): String {
         else -> "Введите корректную цифру"
     }
 }
+//fun getSeason(month: Int): String {
+//    return when (month) {
+//        !in 1..12 -> "Неверно указан месяц"
+//        in 3..5 -> "Весна"
+//        in 6..8 -> "Лето"
+//        in 9..11 -> "Осень"
+//        else -> "Зима"
+//    }
+//}
+
+
 //Задание 2: "Расчет Возраста Питомца"
 //Контекст: Создайте функцию, которая преобразует возраст собаки в "человеческие" годы.
 // До 2 лет каждый год собаки равен 10.5 человеческим годам, после - каждый год равен 4 человеческим годам.
@@ -56,14 +67,11 @@ fun bonusPoints(sum: Int): Int {
 
 fun documentType(type: String): String {
     val lowerType = type.lowercase()
-    return if (lowerType == "txt") {
-        "Текстовый документ"
-    } else if (lowerType == "jpeg" || lowerType == "jpg" || lowerType == "png") {
-        "Изображение"
-    } else if (lowerType == "xlsx") {
-        "Таблица"
-    } else {
-        "Неизвестный тип"
+    return when (lowerType) {
+        "txt", "docx", "doc" -> "Текстовый документ"
+        "jpeg", "jpg", "png" -> "Изображение"
+        "xlsx" -> "Таблица"
+         else -> "Неизвестный тип"
     }
 }
 
@@ -98,6 +106,16 @@ fun choosingClothes(temp: Int): String {
         else -> "Некорректная температура"
     }
 }
+//fun whichCloses(temperature: Int): String {
+//    return when(temperature) {
+//        in -30 until 0 -> "куртка и шапка"
+//        in 0..15 -> "ветровка"
+//        in 16..35 ->  "футболка и шорты"
+//        else -> "не выходить из дома"
+//    }
+//}
+
+
 
 //Задание 8: "Выбор Фильма по Возрасту"
 //Контекст: Кинотеатр предлагает фильмы разных возрастных категорий.
