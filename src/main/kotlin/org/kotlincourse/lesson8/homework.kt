@@ -156,19 +156,69 @@ fun main() {
 //        if (word.isNotEmpty()) {
 //            abbreviation += word[0].uppercase() // Добавляем первую букву в верхнем регистре
 //        }
-//    }
+//
 //
 //    // Выводим результат
 //    println(abbreviation)
 
-    //Дополнительные задания
-    //Написать метод, который преобразует строку из нескольких слов в строку, где каждое слово начинается с заглавной буквы а все остальные - строчные.
+    //  Дополнительные задания
+    // Написать метод, который преобразует строку из нескольких слов в строку, где каждое слово начинается с заглавной буквы а все остальные - строчные.
     // (можно использовать такой же подход как в задании 5, но накапливать не первые буквы а целиком слова, составленные из первой буквы с uppercase и оставшейся части слова)
-    //Написать шифратор/дешифратор для строки.
+    // Написать шифратор/дешифратор для строки.
     // Шифровка производится путём замены двух соседних букв между собой: Kotlin шифруется в oKltni.
     // Дешифровка выполняется аналогично.
     // Если длина строки - нечётная, в конец добавляется символ пробела до начала шифрования.
     // Таким образом все шифрованные сообщения будут с чётной длинной. Должно получиться два публичных метода: encrypt() и decrypt() которые принимают и возвращают строку.
 
+    val inputString = "объектно-ориентированное программирование"
+    println("Преобразованная строка: ${capitalizeWords(inputString)}")
 
+    val originalText = "Kotlin"
+    val encryptedText = encrypt(originalText)
+    println("Шифрованный текст: $encryptedText")
+    println("Дешифрованный текст: ${decrypt(encryptedText)}")
+}
+
+// Метод для преобразования строки
+fun capitalizeWords(input: String): String {
+    return input.split(" ", "-")
+        .joinToString(" ") { word ->
+            if (word.isNotEmpty()) {
+                word[0].uppercase() + word.substring(1).lowercase()
+            } else {
+                ""
+            }
+        }
+}
+
+// Метод для шифрования строки
+fun encrypt(text: String): String {
+    // Если длина нечётная, добавляем пробел
+    val adjustedText = if (text.length % 2 != 0) text + " " else text
+    val encrypted = StringBuilder()
+
+    // Перебираем строку и меняем местами пары символов
+    for (i in adjustedText.indices step 2) {
+        if (i + 1 < adjustedText.length) {
+            encrypted.append(adjustedText[i + 1]) // Добавляем вторую букву
+            encrypted.append(adjustedText[i])     // Добавляем первую букву
+        }
+    }
+
+    return encrypted.toString()
+}
+
+// Метод для дешифрования строки
+fun decrypt(text: String): String {
+    val decrypted = StringBuilder()
+
+    // Перебираем строку и меняем местами пары символов
+    for (i in text.indices step 2) {
+        if (i + 1 < text.length) {
+            decrypted.append(text[i + 1]) // Добавляем вторую букву
+            decrypted.append(text[i])     // Добавляем первую букву
+        }
+    }
+
+    return decrypted.toString().trim() // Убираем пробел в конце, если был добавлен
 }
