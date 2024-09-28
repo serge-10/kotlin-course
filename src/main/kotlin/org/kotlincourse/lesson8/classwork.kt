@@ -27,37 +27,77 @@ package org.sergei.org.kotlincourse.lesson8
 
 //fun main({
 //
-//    val originalString = "Kotlin is fun"
-//    val subString = originalString.substring(startIndex = 7)
-//    val suString2 = originalString.substring(3 ,6)
-//    val replacedString = originalString.replace(oldValue = "n", newValue = "w")
-//    val words = originalString.split(...delimiters;"is")
-//    val Length = "Hello". length
-//    val upper = "hello".uppercase()
-//    val Lower = "Hello".lowercase()
-//    val trimmed: String
-//    trimmed = "   hello  ".trim()
-//    val trimmed = "   hello  .".startsWith(prefix= "Kot")
-//    val ends = "Kotlin".endsWith(other= "ell")
-//    val contains = "Hello".contains(other= "ell")
-//    val e: String? = null
-//    val empty = e.isNullOrEmpty()
-//    val blank = "   ".isNotBlank()
-//    val repeat = "ab".repeat(n=3)
-//    val letter = originalString[5]
-//    val indexOfChar = "Kotlin".indexOf(char = 't')
-//    val indexOfWord = "Kotlin is the best language".indexOf("best")
-//    val backReverse = "niltoK".reversed()
-//    val multiLineString = """
-//                        Первая строка
-//                        Вторая строка
-//                        Третья строка
-//                        """.trimIndent()
+//    val originalString = "Kotlin is fun" // Инициализация строки с текстом "Kotlin is fun"
 //
-//    val string = "sweet suummer child"
-//    val subString = string.substring(steartindex = 6)
-//    val subString1 = string.substring(6, 12)
+//// Получаем подстроку, начиная с 7-го индекса (с 8-го символа, т.к. индексы начинаются с 0)
+//val subString = originalString.substring(startIndex = 7) // результат: "is fun"
 //
+//// Получаем подстроку с 3-го по 6-й индексы (не включая 6-й индекс)
+//val suString2 = originalString.substring(3, 6) // результат: "lin"
+//
+//// Замена всех вхождений символа 'n' на 'w'
+//val replacedString = originalString.replace(oldValue = "n", newValue = "w") // результат: "Kotliw is fuw"
+//
+//// Разделение строки по указанным разделителям (здесь по слову "is")
+//val words = originalString.split("is") // результат: ["Kotlin ", " fun"]
+//
+//// Получаем длину строки "Hello"
+//val Length = "Hello".length // результат: 5
+//
+//// Преобразование строки в верхний регистр
+//val upper = "hello".uppercase() // результат: "HELLO"
+//
+//// Преобразование строки в нижний регистр
+//val Lower = "Hello".lowercase() // результат: "hello"
+//
+//// Удаление пробелов в начале и конце строки
+//val trimmed: String = "   hello  ".trim() // результат: "hello"
+//
+//// Проверка, начинается ли строка с указанного префикса (здесь "Kot")
+//val startsWith = "   hello  .".startsWith(prefix = "Kot") // результат: false
+//
+//// Проверка, заканчивается ли строка на указанный суффикс (здесь "ell")
+//val ends = "Kotlin".endsWith(other = "ell") // результат: false
+//
+//// Проверка, содержит ли строка указанную подстроку (здесь "ell")
+//val contains = "Hello".contains(other = "ell") // результат: true
+//
+//// Проверка, является ли строка `null` или пустой
+//val e: String? = null
+//val empty = e.isNullOrEmpty() // результат: true (так как e == null)
+//
+//// Проверка, состоит ли строка только из пробелов или пустая
+//val blank = "   ".isNotBlank() // результат: false (так как строка содержит только пробелы)
+//
+//// Повторение строки "ab" три раза
+//val repeat = "ab".repeat(n = 3) // результат: "ababab"
+//
+//// Получение символа строки по индексу (здесь 5-й индекс)
+//val letter = originalString[5] // результат: 'i'
+//
+//// Поиск индекса первого вхождения символа 't' в строке "Kotlin"
+//val indexOfChar = "Kotlin".indexOf(char = 't') // результат: 2
+//
+//// Поиск индекса первого вхождения слова "best" в строке
+//val indexOfWord = "Kotlin is the best language".indexOf("best") // результат: 12
+//
+//// Переворачивание строки (реверс)
+//val backReverse = "niltoK".reversed() // результат: "Kotlin"
+//
+//// Создание многострочной строки
+//val multiLineString = """
+//    Первая строка
+//    Вторая строка
+//    Третья строка
+//""".trimIndent() // результат: многострочная строка без лишних отступов
+//
+//val string = "sweet suummer child" // Инициализация новой строки
+//
+//// Получение подстроки с 6-го индекса
+//val subString = string.substring(startIndex = 6) // результат: "suummer child"
+//
+//// Получение подстроки с 6-го по 12-й индекс (не включая 12-й)
+//val subString1 = string.substring(6, 12) // результат: "suumme"
 //
 //
 //    val name = "Алексей"
