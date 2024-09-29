@@ -170,55 +170,80 @@ fun main() {
     // Если длина строки - нечётная, в конец добавляется символ пробела до начала шифрования.
     // Таким образом все шифрованные сообщения будут с чётной длинной. Должно получиться два публичных метода: encrypt() и decrypt() которые принимают и возвращают строку.
 
-    val inputString = "объектно-ориентированное программирование"
-    println("Преобразованная строка: ${capitalizeWords(inputString)}")
+//    val inputString = "объектно-ориентированное программирование"
+//    println("Преобразованная строка: ${capitalizeWords(inputString)}")
+//
+//    val originalText = "Kotlin"
+//    val encryptedText = encrypt(originalText)
+//    println("Шифрованный текст: $encryptedText")
+//    println("Дешифрованный текст: ${decrypt(encryptedText)}")
+//}
+//
+//// Метод для преобразования строки
+//fun capitalizeWords(input: String): String {
+//    return input.split(" ", "-")
+//        .joinToString(" ") { word ->
+//            if (word.isNotEmpty()) {
+//                word[0].uppercase() + word.substring(1).lowercase()
+//            } else {
+//                ""
+//            }
+//        }
 
-    val originalText = "Kotlin"
-    val encryptedText = encrypt(originalText)
-    println("Шифрованный текст: $encryptedText")
-    println("Дешифрованный текст: ${decrypt(encryptedText)}")
-}
-
-// Метод для преобразования строки
-fun capitalizeWords(input: String): String {
-    return input.split(" ", "-")
-        .joinToString(" ") { word ->
-            if (word.isNotEmpty()) {
-                word[0].uppercase() + word.substring(1).lowercase()
-            } else {
-                ""
-            }
-        }
-}
 
 // Метод для шифрования строки
-fun encrypt(text: String): String {
-    // Если длина нечётная, добавляем пробел
-    val adjustedText = if (text.length % 2 != 0) text + " " else text
-    val encrypted = StringBuilder()
+//fun encrypt(text: String): String {
+//    // Если длина нечётная, добавляем пробел
+//    val adjustedText = if (text.length % 2 != 0) text + " " else text
+//    val encrypted = StringBuilder()
+//
+//    // Перебираем строку и меняем местами пары символов
+//    for (i in adjustedText.indices step 2) {
+//        if (i + 1 < adjustedText.length) {
+//            encrypted.append(adjustedText[i + 1]) // Добавляем вторую букву
+//            encrypted.append(adjustedText[i])     // Добавляем первую букву
+//        }
+//    }
+//
+//    return encrypted.toString()
+//}
+//
+//// Метод для дешифрования строки
+//fun decrypt(text: String): String {
+//    val decrypted = StringBuilder()
+//
+//    // Перебираем строку и меняем местами пары символов
+//    for (i in text.indices step 2) {
+//        if (i + 1 < text.length) {
+//            decrypted.append(text[i + 1]) // Добавляем вторую букву
+//            decrypted.append(text[i])     // Добавляем первую букву
+//        }
+//    }
+//
+//    return decrypted.toString().trim() // Убираем пробел в конце, если был добавлен
 
-    // Перебираем строку и меняем местами пары символов
-    for (i in adjustedText.indices step 2) {
-        if (i + 1 < adjustedText.length) {
-            encrypted.append(adjustedText[i + 1]) // Добавляем вторую букву
-            encrypted.append(adjustedText[i])     // Добавляем первую букву
+    // Вывести таблицу умножения в консоль так, чтобы были ровные строки и столбцы.
+    // В заголовках столбцов и строк - числа для перемножения. В перекрестии - результат умножения.
+    // Каждый столбец должен быть выровнен по правому краю.
+
+
+
+        // Вывод заголовка таблицы
+        print("   ")  // Пустое место для угла
+        for (i in 1..9) {
+            print(String.format("%2d ", i))  // Заголовки столбцов
         }
-    }
+        println()
 
-    return encrypted.toString()
-}
-
-// Метод для дешифрования строки
-fun decrypt(text: String): String {
-    val decrypted = StringBuilder()
-
-    // Перебираем строку и меняем местами пары символов
-    for (i in text.indices step 2) {
-        if (i + 1 < text.length) {
-            decrypted.append(text[i + 1]) // Добавляем вторую букву
-            decrypted.append(text[i])     // Добавляем первую букву
+        // Вывод строк таблицы
+        for (i in 1..9) {
+            print(String.format("%2d ", i))  // Заголовки строк
+            for (j in 1..9) {
+                print(String.format("%2d ", i * j))  // Результаты умножения
+            }
+            println()
         }
-    }
 
-    return decrypted.toString().trim() // Убираем пробел в конце, если был добавлен
+
+    // Переход на новую строку после завершения внутреннего цикла
 }
