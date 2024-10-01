@@ -7,8 +7,8 @@ import org.sergei.org.kotlincourse.lesson4.strings
 
 
 
-fun main() {
-    var text1 = "Это невозможно выполнить за один день"
+//fun main() {
+//    var text1 = "Это невозможно выполнить за один день"
 
 //    // Проверяем, содержит ли фраза слово "невозможно"
 //    (if (text1.contains("невозможно", ignoreCase = true)) {
@@ -110,7 +110,6 @@ fun main() {
 //    println("$maskedNumber$lastFourDigits")
 
 
-
     // Задание 3: Форматирование Адреса Электронной Почты. Используй replace
     // Описание: У вас есть электронный адрес "username@example.com".
     // Преобразуйте его в строку "username [at] example [dot] com".
@@ -162,6 +161,7 @@ fun main() {
 //    println(abbreviation)
 
     //  Дополнительные задания
+
     // Написать метод, который преобразует строку из нескольких слов в строку, где каждое слово начинается с заглавной буквы а все остальные - строчные.
     // (можно использовать такой же подход как в задании 5, но накапливать не первые буквы а целиком слова, составленные из первой буквы с uppercase и оставшейся части слова)
     // Написать шифратор/дешифратор для строки.
@@ -170,6 +170,7 @@ fun main() {
     // Если длина строки - нечётная, в конец добавляется символ пробела до начала шифрования.
     // Таким образом все шифрованные сообщения будут с чётной длинной. Должно получиться два публичных метода: encrypt() и decrypt() которые принимают и возвращают строку.
 
+fun main(){
 //    val inputString = "объектно-ориентированное программирование"
 //    println("Преобразованная строка: ${capitalizeWords(inputString)}")
 //
@@ -177,7 +178,7 @@ fun main() {
 //    val encryptedText = encrypt(originalText)
 //    println("Шифрованный текст: $encryptedText")
 //    println("Дешифрованный текст: ${decrypt(encryptedText)}")
-//}
+}
 //
 //// Метод для преобразования строки
 //fun capitalizeWords(input: String): String {
@@ -228,21 +229,48 @@ fun main() {
 
 
 
-        // Вывод заголовка таблицы
-        print("   ")  // Пустое место для угла
-        for (i in 1..9) {
-            print(String.format("%2d ", i))  // Заголовки столбцов
+//        // Вывод заголовка таблицы
+//    print("   ")  // Пустое место для угла
+//    for (i in 1..9) {
+//        print(String.format("%2d ", i))  // Заголовки столбцов
+//    }
+//    println()
+//
+//    // Вывод строк таблицы
+//    for (i in 1..9) {
+//        print(String.format("%2d ", i))  // Заголовки строк
+//        for (j in 1..9) {
+//            print(String.format("%2d ", i * j))  // Результаты умножения
+//        }
+//        println()       // Переход на новую строку после завершения внутреннего цикла
+//    }
+////
+
+fun multiplyTable(first: Int, second: Int) {
+    val formatLength = (first * second).toString().length + 1
+    print(" ".repeat(formatLength))
+
+    val xRange = getRange(first)
+    val yRange = getRange(second)
+    val formatter = "%${formatLength}s"
+    for (i in xRange) {
+        print(formatter.format("$i"))
+    }
+    println()
+    for (i in yRange) {
+        print(formatter.format("$i"))
+        for (j in xRange) {
+            print(formatter.format("${i * j}"))
         }
         println()
-
-        // Вывод строк таблицы
-        for (i in 1..9) {
-            print(String.format("%2d ", i))  // Заголовки строк
-            for (j in 1..9) {
-                print(String.format("%2d ", i * j))  // Результаты умножения
-            }
-            println()       // Переход на новую строку после завершения внутреннего цикла
-        }
-
-
+    }
 }
+
+private fun getRange(size: Int): IntProgression {
+    return when {
+        size > 0 -> 1..size
+        size < 0 -> -1 downTo size
+        else -> throw IllegalArgumentException("Неверное значение size")
+    }
+}
+
