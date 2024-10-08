@@ -1,8 +1,8 @@
 package org.sergei.org.kotlincourse.lesson10
 
-  // Работа с массивами Array
+// Работа с массивами Array
 
-  //Задание 1: Создание и Инициализация Массива
+//Задание 1: Создание и Инициализация Массива
 
 
 fun main(){
@@ -23,8 +23,8 @@ fun main(){
     // Создайте пустой массив строк размером 10 элементов.
 
     val array2 = Array<String>(10) { "" }  // Создаем массив строк из 10 элементов
-        for (i in array2.indices){
-        }
+    for (i in array2.indices){
+    }
 
 
     // Задание 3: Заполнение Массива в Цикле
@@ -32,9 +32,9 @@ fun main(){
     // Создайте массив из 5 элементов типа Double и заполните его значениями, являющимися удвоенным индексом элемента.
 
     val array3 = Array<Double>(5){ 0.0 }   // Создаем массив из 5 элементов типа Double
-        for (elem in array3.indices){
-            array3[elem] = elem * 2.0    // Присваиваем каждому элементу значение, равное удвоенному индексу
-        }
+    for (elem in array3.indices){
+        array3[elem] = elem * 2.0    // Присваиваем каждому элементу значение, равное удвоенному индексу
+    }
 
     // Задание 4: Изменение Элементов Массива
 
@@ -128,13 +128,13 @@ fun main(){
     val array10 = arrayOf("apple", "banana", "cherry", "date")
     val search = "ban"
 
-    val result = findStringInArray(array10, search)
-
-    if (result != null) {
-        println("Найден элемент: $result")
-    } else {
-        println("Элемент не найден")
-    }
+////    val result = findStringInArray(array10, search)
+//
+//    if (result != null) {
+//        println("Найден элемент: $result")
+//    } else {
+//        println("Элемент не найден")
+//    }
 
     // Работа со списками List
 
@@ -311,7 +311,7 @@ fun main(){
     for (i in set9_1){
         for (j in set9_2){
             if (i == j){
-               emtset.add(i)
+                emtset.add(i)
             }
         }
     }
@@ -351,30 +351,27 @@ fun main(){
             list11.add(i)
         }
 
-}
-fun findStringInArray(array: Array<String>, searchString: String): String? {
-    for (element in array) {
-        if (element.contains(searchString)) {
-            return element  // Возвращаем найденный элемент
-        }
     }
-    return null  // Возвращаем null, если ничего не найдено
+    fun findStringInArray(array: Array<String>, searchString: String): String? {
+        for (element in array) {
+            if (element.contains(searchString)) {
+                return element  // Возвращаем найденный элемент
+            }
+        }
+        return null  // Возвращаем null, если ничего не найдено
 
-
-}
+    }    }
 
 // Задание 7: Проверка Наличия Элемента в Множестве
 //Создай функцию, которая принимает множество строк (set) и строку и проверяет,
 // есть ли в множестве указанная строка. Нужно вернуть булево значение true если строка есть.
 // Реши задачу через цикл.
 
-fun containsString(set: Set<String>, value: String): Boolean {
-    for (item in set) {
-        if (item == value) {
-            return true  // Если строка найдена, возвращаем true
-        }
-    }
-    return false  // Если строка не найдена, возвращаем false
-}
-
-
+//    fun containsString(set: Set<String>, value: String): Boolean {
+//        for (item in set) {
+//            if (item == value) {
+//                return true  // Если строка найдена, возвращаем true
+//            }
+//        }
+//        return false  // Если строка не найдена, возвращаем false
+//    }
