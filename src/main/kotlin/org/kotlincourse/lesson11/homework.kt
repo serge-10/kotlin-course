@@ -114,6 +114,61 @@ fun main(){
     // Создай словарь, где ключами будут пары чисел.
     // Через перебор найди значение у которого пара будет содержать цифру 5 в качестве первого или второго значения.
 
+    val myMap12: MutableMap<Int, Int> = mutableMapOf(1 to 3, 2 to 5, 5 to 6)
 
+    for ((key, value) in myMap12) {
+        if (key == 5 || value == 5) {           // Проверяем, если ключ или значение содержат 5
+            println("Ключ: $key, Значение: $value")
+        }
+    }
+
+    // Напиши решения задач. В каждом случае нужно проанализировать и подобрать оптимальный тип словаря.
+
+    // Задание 6: Словарь Библиотека
+    // Ключи - автор книги, значения - список книг
+
+    val spechlMap6: MutableMap<String, MutableList<String>> = mutableMapOf(
+        "Толстой" to mutableListOf("Война и мир том1", "Война и мир том2"),
+        "Бунин" to mutableListOf("Проза", "Тёмные алеи")
+    )
+
+    // Задание 12: Справочник Растений
+    // Ключи - типы растений (например, "Цветы", "Деревья"), значения - списки названий растений
+
+    val spechlMap12: MutableMap<String, MutableList<String>> = mutableMapOf(
+        "Цветы" to mutableListOf("Розы", "Ромашки", "Тюльпаны"),
+        "Деревья" to mutableListOf("Тополь", "Сосна", "Дуб")
+    )
+
+    // Задание 8: Четвертьфинала
+    // Ключи - названия спортивных команд, значения - списки игроков каждой команды
+
+    val spechMap8 : MutableMap<String, MutableList<String>> = mutableMapOf(
+        "Сокол" to mutableListOf("Сёмен", "Иванов", "Меняйло"),
+        "Енисей" to mutableListOf("Шевцов", "Ром", "Мартин")
+    )
+
+    // Задание 9: Курс лечения
+    // Ключи - даты, значения - список препаратов принимаемых в дату
+
+    val spechlMap9: MutableMap<String, MutableList<String>> = mutableMapOf(
+        "2024-10-01" to mutableListOf("Препарат1", "Препарат2"),
+        "2024-10-02" to mutableListOf("Препарат3", "Препарат4"),
+        "2024-10-03" to mutableListOf("Препарат5")
+    )
+
+    // Задание 10: Словарь Путешественника
+    // Ключи - страны, значения - словари из городов со списком интересных мест.
+
+    val travelMap: MutableMap<String, MutableMap<String, MutableList<String>>> = mutableMapOf(
+        "Франция" to mutableMapOf(
+            "Париж" to mutableListOf("Эйфелева башня", "Лувр", "Нотр-Дам"),
+            "Марсель" to mutableListOf("Старый порт", "Базилика Нотр-Дам-де-ла-Гард")
+        ),
+        "Италия" to mutableMapOf(
+            "Рим" to mutableListOf("Колизей", "Фонтан Треви", "Пантеон"),
+            "Венеция" to mutableListOf("Гранд-канал", "Площадь Сан-Марко")
+        )
+    )
 
 }
