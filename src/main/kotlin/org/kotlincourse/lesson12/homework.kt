@@ -1,11 +1,18 @@
 package org.sergei.org.kotlincourse.lesson12
 
+import org.sergei.org.kotlincourse.lesson5.result
+
 fun main(){
     val numbers = listOf(1, 2, 3, 4, 5)
     println(averageValue(numbers))  // Вывод: 3.0
 
     println(stringLength("Hello"))  // Вывод: 5
     println(stringLength(null))     // Вывод: null
+
+
+    drawRectangle(8, 9) // Рисует прямоугольник 5 на 3
+
+    printMap(5, 5) // Пример вызова функции
 
 }
 
@@ -118,6 +125,118 @@ fun processList(listing5: List<String?>) {
     for (i in listing5) {
         if (i == null) return  // Прекращаем выполнение, если встречается null
         println(i)  // Выводим строку
+    }
+}
+
+
+// Сделай рефакторинг функции, через определение вспомогательных приватных функций.
+// Требуется избавиться от дублирования кода и трудно воспринимаемых фрагментов.
+
+// Сначала сделай запуск функции и посмотри на результат её работы.
+// Сделай запуск после рефакторинга и проверь, чтобы результат работы был аналогичным.
+
+private fun checks(size: Int, result: String) {
+    if (size <= 0) throw IllegalArgumentException("$result должно быть положительным и больше нуля")
+}
+
+private fun printBorder(width: Int, corner: Char, middle: Char) {
+    val line = StringBuilder()               // Используем StringBuilder для более эффективной конкатенации строк
+    line.append(corner)                      // Начинаем с угла
+    for (i in 1 until width - 1) {
+        line.append(middle)                  // Добавляем среднюю часть
+    }
+    line.append(corner)                      // Завершаем углом
+    println(line)                            // Печатаем строку
+}
+
+private fun printMiddleLine(width: Int) {
+    val middleLine = StringBuilder()          // Используем StringBuilder
+    middleLine.append("|")                    // Начинаем с боковой границы
+    for (j in 1 until width - 1) {
+        middleLine.append(" ")                // Добавляем пробелы между боковыми границами
+    }
+    middleLine.append("|")                    // Завершаем боковой границей
+    println(middleLine)                       // Печатаем строку
+}
+
+fun drawRectangle(width: Int, height: Int) {
+    checks(width, "width")               // Проверка ширины
+    checks(height, "height")             // Проверка высоты
+
+    // Рисуем верхнюю границу
+    printBorder(width, '+', '-')
+
+    // Рисуем боковые границы
+    for (i in 1 until height - 1) {
+        printMiddleLine(width)
+    }
+
+    // Рисуем нижнюю границу
+    printBorder(width, '+', '-')
+}
+
+
+// Сделай рефакторинг функции, которую разбирали на уроке и устрани баг,
+// из-за которого таблица разъезжается при разных размерностях аргументов
+
+
+private fun checkSize(xy: Int, result: String) {
+    if (xy == 0) throw IllegalArgumentException("$result не должно быть равным нулю")
+}
+
+private fun createRange(size: Int): IntProgression {
+    return if (size > 0) {
+        0..size  // Диапазон от 0 до положительного значения
+    } else {
+        0 downTo size  // Диапазон от 0 до отрицательного значения
+    }
+}
+
+// Форматирование и печать строки с числами (оси или элементы карты)
+private fun printFormattedLine(values: IntProgression, formatterSize: Int) {
+    for (i in values) {
+        print("%${formatterSize}s".format(i))
+    }
+    println()
+}
+
+// Форматирование и печать одного значения на карте
+private fun getMapSymbol(i: Int, j: Int): String {
+    val m = i * j
+    return when {
+        m % 2 == 0 -> if (m % 3 == 0) "." else "*"
+        m % 5 == 0 -> if (i < 0) "-" else "+"
+        else -> "?"
+    }
+}
+
+// Печать одной строки карты
+private fun printMapRow(i: Int, xRange: IntProgression, formatterSize: Int) {
+    print("%${formatterSize}s".format(i))  // Печать заголовка для Y
+    for (j in xRange) {
+        val result = getMapSymbol(i, j)
+        print("%${formatterSize}s".format(result))
+    }
+    println()
+}
+
+// Основная функция для печати карты
+fun printMap(xSize: Int, ySize: Int) {
+    checkSize(xSize, "xSize")
+    checkSize(ySize, "ySize")
+
+    val formatterSize = " $xSize".length
+
+    val xRange = createRange(xSize)  // Диапазон по оси X (положительные значения)
+    val yRange = createRange(-ySize)  // Диапазон по оси Y (отрицательные значения)
+
+    // Печать заголовков по оси X
+    print(" ".repeat(formatterSize))
+    printFormattedLine(xRange, formatterSize)
+
+    // Печать строк карты
+    for (i in yRange) {
+        printMapRow(i, xRange, formatterSize)
     }
 }
 

@@ -2,7 +2,10 @@ package org.sergei.org.kotlincourse.lesson12
 
 fun main(){
     // Вызов функции с примерами размеров
-    org.sergei.printMap(10, -15)  // Карта 10x15
+//    printMap(10, -15)  // Карта 10x15
+//
+//    printMap(5, 5) // Пример вызова функции
+
 }
 //fun  имяФункции(параметры): ТипВозвращаемогоЗначения{
 //    //тело функции
@@ -101,15 +104,78 @@ fun repleyString(strings: MutableList<String>, str: String){
     println("Строка не нашлась")
 }
 
+private fun checkSize1(xy: Int, result: String) {
+    if (xy == 0) throw IllegalArgumentException("$result не должно быть равным нулю")
+}
+
+private fun createRange1(size: Int): IntProgression {
+    return if (size > 0) {
+        0..size  // Диапазон от 0 до положительного значения
+    } else {
+        0 downTo size  // Диапазон от 0 до отрицательного значения
+    }
+}
+
+// Форматирование и печать строки с числами (оси или элементы карты)
+private fun printFormattedLine1(values: IntProgression, formatterSize: Int) {
+    for (i in values) {
+        print("%${formatterSize}s".format(i))
+    }
+    println()
+}
+
+// Форматирование и печать одного значения на карте
+private fun getMapSymbol1(i: Int, j: Int): String {
+    val m = i * j
+    return when {
+        m % 2 == 0 -> if (m % 3 == 0) "." else "*"
+        m % 5 == 0 -> if (i < 0) "-" else "+"
+        else -> "?"
+    }
+}
+
+// Печать одной строки карты
+private fun printMapRow1(i: Int, xRange: IntProgression, formatterSize: Int) {
+    print("%${formatterSize}s".format(i))  // Печать заголовка для Y
+    for (j in xRange) {
+        val result = getMapSymbol(i, j)
+        print("%${formatterSize}s".format(result))
+    }
+    println()
+}
+
+// Основная функция для печати карты
+fun printMap1(xSize: Int, ySize: Int) {
+    checkSize(xSize, "xSize")
+    checkSize(ySize, "ySize")
+
+    val formatterSize = " $xSize".length
+
+    val xRange = createRange(xSize)  // Диапазон по оси X (положительные значения)
+    val yRange = createRange(-ySize)  // Диапазон по оси Y (отрицательные значения)
+
+    // Печать заголовков по оси X
+    print(" ".repeat(formatterSize))
+    printFormattedLine(xRange, formatterSize)
+
+    // Печать строк карты
+    for (i in yRange) {
+        printMapRow(i, xRange, formatterSize)
+    }
+}
+
+// Сделай рефакторинг функции, которую разбирали на уроке и устрани баг,
+// из-за которого таблица разъезжается при разных размерностях аргументов
+
 private fun checkSize(xy: Int, result: String) {
     if (xy == 0) throw IllegalArgumentException("$result не должно быть равным нулю")
 }
 
 private fun createRange(size: Int): IntProgression {
     return if (size > 0) {
-        0..size  // Диапазон от 0 до положительного значения
+        0..size // Диапазон от 0 до положительного значения
     } else {
-        0 downTo size  // Диапазон от 0 до отрицательного значения
+        0 downTo size // Диапазон от 0 до отрицательного значения
     }
 }
 
@@ -133,7 +199,7 @@ private fun getMapSymbol(i: Int, j: Int): String {
 
 // Печать одной строки карты
 private fun printMapRow(i: Int, xRange: IntProgression, formatterSize: Int) {
-    print("%${formatterSize}s".format(i))  // Печать заголовка для Y
+    print("%${formatterSize}s".format(i)) // Печать заголовка для Y
     for (j in xRange) {
         val result = getMapSymbol(i, j)
         print("%${formatterSize}s".format(result))
@@ -142,21 +208,22 @@ private fun printMapRow(i: Int, xRange: IntProgression, formatterSize: Int) {
 }
 
 // Основная функция для печати карты
-fun printMap(xSize: Int, ySize: Int) {
-    checkSize(xSize, "xSize")
-    checkSize(ySize, "ySize")
+//fun printMap(xSize: Int, ySize: Int) {
+//    checkSize(xSize, "xSize")
+//    checkSize(ySize, "ySize")
+//
+//    val formatterSize = " $xSize".length
+//
+//    val xRange = createRange(xSize) // Диапазон по оси X
+//    val yRange = createRange(-ySize) // Диапазон по оси Y
+//
+//    // Печать заголовков по оси X
+//    print(" ".repeat(formatterSize))
+//    printFormattedLine(xRange, formatterSize)
+//
+//    // Печать строк карты
+//    for (i in yRange) {
+//        printMapRow(i, xRange, formatterSize)
+//    }
+//}
 
-    val formatterSize = " $xSize".length
-
-    val xRange = createRange(xSize)  // Диапазон по оси X (положительные значения)
-    val yRange = createRange(-ySize)  // Диапазон по оси Y (отрицательные значения)
-
-    // Печать заголовков по оси X
-    print(" ".repeat(formatterSize))
-    printFormattedLine(xRange, formatterSize)
-
-    // Печать строк карты
-    for (i in yRange) {
-        printMapRow(i, xRange, formatterSize)
-    }
-}
