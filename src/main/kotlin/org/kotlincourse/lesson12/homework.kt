@@ -25,7 +25,7 @@ fun simple(){
     // Напишите сигнатуру функции, которая принимает два целых числа и возвращает их сумму.
 
 fun simpleSum(a: Int, b: Int): Int{
-    return a +b
+    return a + b
 }
 
     // Напишите сигнатуру функции, которая принимает строку и ничего не возвращает.
@@ -80,16 +80,13 @@ fun StringsFunInt(strings2: String?, c: Int? ): Boolean? {
     // Задача 1:
     // Напишите функцию multiplyByTwo, которая принимает целое число и возвращает его, умноженное на 2.
 
-fun multiplyByTwo(count: Int): Int {
-    return count * 2
-}
+fun multiplyByTwo(count: Int) = count * 2
 
     // Задача 2:
     // Создайте функцию isEven, которая принимает целое число и возвращает true, если число чётное, и false в противном случае.
 
-fun isEven(count2: Int): Boolean {
-    return count2 % 2 == 0
-}
+fun isEven(count2: Int) = count2 % 2 == 0
+
 
     // Задача 3:
     // Напишите функцию printNumbersUntil, которая принимает целое число n и выводит на экран числа от 1 до n.
@@ -123,8 +120,8 @@ fun findFirstNegative(listing: List<Int>): Int? {
 
 fun processList(listing5: List<String?>) {
     for (i in listing5) {
-        if (i == null) return  // Прекращаем выполнение, если встречается null
-        println(i)  // Выводим строку
+        if (i == null) return        // Прекращаем выполнение, если встречается null
+        println(i)                   // Выводим строку
     }
 }
 
