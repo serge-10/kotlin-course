@@ -60,7 +60,25 @@ fun main(){
     val number11 = listOf(1, 5, 7, 5)
     println(number11.contains(4))
 
-    //
+    // Отфильтровать коллекцию по диапазону 18-30
+
+    val numbers12 = listOf(4, 5, 8, 6, 7)
+    println(numbers12.filter {it in  18..30 })
+
+    // Выбрать числа, которые не делятся на 2 и 3 одновременно
+
+    val numbers13 = listOf(45, 58, 87, 58)
+    println(numbers13.filter { it % 2 == 0 && it % 3 == 0 })
+
+    // Очистить текстовую коллекцию от null элементов
+
+    val numbers14 = listOf("f", "f", "d", "s", null, null)
+    val nonNullNumbers = numbers14.filterNotNull()    // Убираем null значения
+    println(nonNullNumbers)                           // Выведет: [f, f, d, s]
+
+    // Преобразовать текстовую коллекцию в коллекцию длин слов
+
+    val numbers15 = listOf("Привет", "Котлин", "МИР", "Тест")
 
 
 }
