@@ -126,7 +126,10 @@ fun main() {
 
     val grades = listOf(85, 58, 90, 74, 88, 67, 95, 92, 50, 42, 12)
 
-    val topThreeGrades = grades.filter { it >= 60 }.sorted().take(3)
+    val topThreeGrades =
+        grades.filter { it >= 60 }
+            .sorted()
+            .take(3)
 
     println(topThreeGrades)               // Выведет: [67, 74, 85]
 
@@ -148,7 +151,8 @@ fun main() {
          "Тумба", "игрушка", "Настенные часы", "подсвечник", "Журнальный столик", "сувенир", "Корзина для белья",
          "посуда", "Настольная лампа", "торшер", "Этажерка")
 
-    val listGroup = list.map { it.lowercase() }.groupBy { it.first() }
+    val listGroup = list.map { it.lowercase() }
+        .groupBy { it.first() }
             println(listGroup)
 
     // Задание 5: Подсчёт средней длины слов в списке.
@@ -176,7 +180,9 @@ fun main() {
 
     val numbers = listOf(1, 3, 5, 7, 3, 1, 8, 9, 9, 7)
 
-    println(numbers.distinct().sorted().groupBy { if (it % 2 == 0) "четные" else "нечетные" })
+    println(numbers.distinct()
+        .sorted()
+        .groupBy { if (it % 2 == 0) "четные" else "нечетные" })
 
 
     // Задание 7: Поиск первого подходящего элемента
@@ -187,8 +193,9 @@ fun main() {
 
     val ages = listOf(22, 18, 30, 45, 17, null, 60)
 
-    val result = ages.firstOrNull { it != null && it > 18 }   // Находим первый возраст, который больше 18 и преобразуем его в строку
-        ?.let { it.toString() } ?: "Подходящий возраст не найден"
+    val result = ages.filterNotNull()
+        .firstOrNull { it > 18 } // Находим первый возраст, который больше 18 и преобразуем его в строку
+         ?.toString()  ?: "Подходящий возраст не найден"
 
     println(result)
 
