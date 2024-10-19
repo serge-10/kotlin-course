@@ -52,5 +52,32 @@ fun main(){
     // В словаре хранятся результаты тестирования API (ключ — endpoint, значение — статус ответа в строке).
     // Для указанного endpoint найдите статус ответа, если endpoint отсутствует, предположите, что он не был протестирован.
 
+    val apiTestResults = mapOf<String, String>(
+        "/login" to "200 OK",
+        "/signup" to "201 Created",
+        "/logout" to "404 Not Found"
+    )
+
+    val endpoint = "/profile"
+    val status = apiTestResults.getOrDefault(endpoint, "Не был протестирован")
+
+    println("Статус для $endpoint: $status")
+
+
+    // Из словаря, содержащего конфигурации тестового окружения (ключ — название параметра конфигурации),
+    // получите значение для "browserType". Ответ не может быть null.
+
+    val config = mapOf(
+        "browserType" to "Chrome",
+        "baseUrl" to "https://example.com",
+        "timeout" to "30"
+    )
+
+    val browserType = config.getValue("browserType")
+
+    println("Тип браузера: $browserType")
+
+    // Создайте копию неизменяемого словаря с данными о версиях тестируемого ПО, чтобы добавить новую версию.
+
 
 }
