@@ -22,7 +22,7 @@ fun main(){
     // Посчитайте количество успешных тестов в словаре с результатами.
 
     val test4 = mutableMapOf<String,Double>()
-    val successfulTests = test4.count { it.value < 0.25 }
+    val successfulTests = test4.count { it.value < 0.5 }
 
     // Удалите из изменяемого словаря с баг-трекингом запись о баге, который был исправлен.
 
