@@ -45,4 +45,19 @@ fun main(){
 
     // Повторно выводим информацию
     concert.showInfo()
+
+
+    val shelf = Shelf(20)  // Создаем полку с вместимостью 20 символов
+
+    println(shelf.addItem("Book"))           // true
+    println(shelf.addItem("Notebook"))       // true
+    println(shelf.addItem("Laptop"))         // false, если места недостаточно
+    println(shelf.removeItem("Book"))        // true, удаляет предмет
+    println(shelf.containsItem("Notebook"))  // true, предмет на полке
+    println(shelf.canAccommodate("Laptop"))  // false, места недостаточно для предмета
+    println(shelf.getItems())                     // Показывает предметы на полке
+    println("Remaining capacity: ${shelf.remainingCapacity()}")  // Показывает оставшееся место
+
+
 }
+
