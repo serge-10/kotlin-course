@@ -5,21 +5,13 @@ class Shelf(internal val capacity: Int) {
 
     // Метод для добавления предмета на полку
     fun addItem(item: String): Boolean {
-        return if (canAccommodate(item)) {
-            items.add(item)             // Добавляем предмет на полку
-            true                        // Место есть, возвращаем true
-        } else {
-            false                       // Места нет, возвращаем false
-        }
+        return  canAccommodate(item) && items.add(item)             // Добавляем предмет на полку
     }
 
     // Метод для удаления предмета с полки
     fun removeItem(item: String): Boolean {
-        return if (items.remove(item)) {
-            true                     // Предмет найден и удален, возвращаем true
-        } else {
-            false                    // Предмет не найден, возвращаем false
-        }
+        return items.remove(item)
+
     }
 
     // Метод для проверки, вместится ли предмет на полку

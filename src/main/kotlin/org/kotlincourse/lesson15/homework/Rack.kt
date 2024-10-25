@@ -25,26 +25,14 @@ class Rack(private val maxShelves: Int) {
 
     // Метод для добавления предмета на самую свободную полку
     fun addItem(item: String): Boolean {
-        val shelf = shelves.maxByOrNull { it.remainingCapacity() }  // Ищем полку с максимальной вместимостью
-        return shelf?.let {
-            if (it.canAccommodate(item)) {
-                it.addItem(item)
-                true
-            } else {
-                false
-            }
-        } ?: false  // Если нет полок или все полки заполнены
+        return shelves.any { it.addItem(item)  }
+
     }
 
     // Метод для удаления предмета с любой полки
     fun removeItem(item: String): Boolean {
-        for (shelf in shelves) {
-            if (shelf.containsItem(item)) {
-                shelf.removeItem(item)
-                return true  // Предмет найден и удален
-            }
-        }
-        return false  // Предмет не найден на полках
+        return shelves.any { it.removeItem(item) }
+
     }
 
     // Метод для проверки наличия предмета на одной из полок
@@ -86,7 +74,17 @@ class Rack(private val maxShelves: Int) {
         shelves.removeAt(index)  // Удаляем полку
         return failedItems  // Возвращаем список предметов, которые не удалось распределить
     }
-}
+    fun advancedRemoveShelf21(index: Int): List<String> {
+        val unallocatedItems = mutableListOf<String>()
+        if (index >= shelves.size) return unallocatedItems
+        val removedShelf = shelves.removeAt(index)
+        for (item in removedShelf.getItems().sortedByDescending { it.length }) {
+            if (addItem(item)) continue
+            unallocatedItems.add(item)
+        }
+        return unallocatedItems
+    }
+    }
 
 // Пример использования
 fun main() {

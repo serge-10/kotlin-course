@@ -1,6 +1,8 @@
 package org.sergei.org.kotlincourse.lesson15.homework
 
-class Party(val location: String, val attendees: Int) {
+class Party(val location: String,
+            val attendees: Int
+) {
 
     // Метод для вывода информации о вечеринке
 
