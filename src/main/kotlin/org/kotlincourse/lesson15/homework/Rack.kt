@@ -5,12 +5,7 @@ class Rack(private val maxShelves: Int) {
 
     // Метод для добавления новой полки на стеллаж
     fun addShelf(shelf: Shelf): Boolean {
-        return if (shelves.size < maxShelves && !shelves.contains(shelf)) {
-            shelves.add(shelf)
-            true
-        } else {
-            false  // Место заполнено или такая полка уже есть
-        }
+        return shelves.size < maxShelves  && shelves.add(shelf)
     }
 
     // Метод для удаления полки по индексу
