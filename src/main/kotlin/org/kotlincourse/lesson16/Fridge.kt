@@ -1,10 +1,12 @@
 package org.sergei.org.kotlincourse.lesson16
 
-class Fridge(val capacity: Int) { // Класс Fridge описывает холодильник с максимальной вместимостью секций, переданной через параметр capacity.
+class Fridge(val capacity: Int) { // Класс Fridge описывает холодильник с максимальной вместимостью секций,
+                                  // переданной через параметр capacity.
 
-    private val sections = mutableListOf<Section>() // Приватный список секций (Section), который хранит все секции в холодильнике. Начально пуст.
+    private val sections = mutableListOf<Section>() // Приватный список секций (Section), который хранит все секции в холодильнике.
+                                                    // Начально пуст.
 
-    fun addSection(section: Section): Boolean { // Метод добавления секции в холодильник.
+    fun addSection(section: Section): Boolean {                   // Метод добавления секции в холодильник.
         return sections.size < capacity && sections.add(section) // Возвращает true, если секция добавлена, иначе false.
     }
 
@@ -31,8 +33,8 @@ class Fridge(val capacity: Int) { // Класс Fridge описывает хол
     }
 
     fun removeAllItemsByName(name: String): Int { // Метод удаления всех предметов с заданным именем из холодильника.
-        var removedCount = 0 // Счетчик удаленных предметов.
-        sections.forEach { section -> // Проходим по всем секциям.
+        var removedCount = 0               // Счетчик удаленных предметов.
+        sections.forEach { section ->      // Проходим по всем секциям.
             removedCount += section.items.count { it.name == name } // Считаем количество предметов с заданным именем.
             section.items.removeIf { it.name == name } // Удаляем предметы с заданным именем из секции.
         }

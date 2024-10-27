@@ -8,8 +8,8 @@ class Section(
 
     val items = mutableListOf<Item>() // Приватный список предметов типа Item, который хранит все добавленные предметы в секции.
 
-    fun addItem(item: Item): Boolean { // Метод для добавления предмета в секцию.
-        val itemVolume = convertWeightToVolume(item) // Рассчитываем объем добавляемого предмета.
+    fun addItem(item: Item): Boolean {                      // Метод для добавления предмета в секцию.
+        val itemVolume = convertWeightToVolume(item)        // Рассчитываем объем добавляемого предмета.
         return getFreeSpace() >= itemVolume && items.add(item) // Возвращаем true, если предмет добавлен, иначе false.
     }
 
@@ -17,9 +17,8 @@ class Section(
         return items.find { it.name == name }            // Возвращает найденный Item или null, если предмет не найден.
     }
 
-    fun remove(item: Item): Boolean {
-        return items.remove(item)  // Метод для удаления конкретного предмета из секции.
-        // Возвращает true, если предмет был удален, иначе false.
+    fun remove(item: Item): Boolean {          // Метод для удаления конкретного предмета из секции.
+        return items.remove(item)              // Возвращает true, если предмет был удален, иначе false.
     }
 
     fun getFreeSpace(): Int {                           // Метод для определения свободного места в секции
@@ -34,7 +33,7 @@ type: $type                    // Тип секции.
    free: ${getFreeSpace()}      // Оставшееся свободное место в секции.
    items:                       // Список предметов в секции.
        ${items.joinToString("\n\t\t")} // Перечисляет предметы в секции с новой строки и отступом для каждого предмета.
-       """.trimIndent() // Удаляет лишние отступы в начале строки для более читабельного вывода.
+       """.trimIndent()                 // Удаляет лишние отступы в начале строки для более читабельного вывода.
     }
 
     fun convertWeightToVolume(item: Item): Int { // Приватный метод для перевода веса предмета в объем.
