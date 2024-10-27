@@ -8,13 +8,9 @@ class Section(
 
     val items = mutableListOf<Item>() // Приватный список предметов типа Item, который хранит все добавленные предметы в секции.
 
-    fun addItem(item: Item): Boolean {                    // Метод для добавления предмета в секцию.
-        val itemVolume = convertWeightToVolume(item)      // Рассчитываем объем добавляемого предмета.
-        if (getFreeSpace() >= itemVolume) {               // Проверяем, достаточно ли свободного места.
-            items.add(item)                               // Добавляем предмет.
-            return true                                   // Возвращаем true, если добавление прошло успешно.
-        }
-        return false                                      // Если свободного места недостаточно, возвращаем false.
+    fun addItem(item: Item): Boolean { // Метод для добавления предмета в секцию.
+        val itemVolume = convertWeightToVolume(item) // Рассчитываем объем добавляемого предмета.
+        return getFreeSpace() >= itemVolume && items.add(item) // Возвращаем true, если предмет добавлен, иначе false.
     }
 
     fun findItemByName(name: String): Item? {            // Метод для поиска предмета по имени в секции.
