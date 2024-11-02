@@ -8,21 +8,24 @@ fun main() {
         "sixteenth", "seventeenth", "eighteenth", "nineteenth", "twentieth"
     )
 
-    // Тестирование ExtractFirst
-    val m1 = ExtractFirst()
-    ordinalNumbers.forEach { m1.addMaterial(it) }
-    println("Extracted (First): ${m1.extract()}")
-    m1.printContainer()
+    // Тест первого подкласса
+    val bottomContainer = BottomInsertionContainer()
+    bottomContainer.addMaterial("bottom")
+    bottomContainer.printContainer()
 
-    // Тестирование ExtractLast
-    val m2 = ExtractLast()
-    ordinalNumbers.forEach { m2.addMaterial(it) }
-    println("Extracted (Last): ${m2.extract()}")
-    m2.printContainer()
+    // Тест второго подкласса
+    val alternatingContainer = AlternatingInsertionContainer()
+    alternatingContainer.addMaterials(ordinalNumbers.take(5))
+    alternatingContainer.printContainer()
 
-    // Тестирование ExtractMiddle
-    val m3 = ExtractMiddle()
-    ordinalNumbers.forEach { m3.addMaterial(it) }
-    println("Extracted (Middle): ${m3.extract()}")
-    m3.printContainer()
+    // Тест третьего подкласса
+    val alphabeticalContainer = AlphabeticalInsertionContainer()
+    ordinalNumbers.take(5).forEach { alphabeticalContainer.addMaterial(it) }
+    alphabeticalContainer.printContainer()
+
+    // Тест четвертого подкласса
+    val dictionaryContainer = DictionaryInsertionContainer()
+    val testDictionary = mapOf("key1" to "value1", "key2" to "value2")
+    dictionaryContainer.addMaterialsFromDictionary(testDictionary)
+    dictionaryContainer.printContainer()
 }

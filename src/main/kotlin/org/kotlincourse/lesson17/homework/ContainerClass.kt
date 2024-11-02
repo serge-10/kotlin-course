@@ -1,12 +1,11 @@
 package org.sergei.org.kotlincourse.lesson17.homework
 
+// Абстрактный класс Materials
 abstract class Materials {
 
-    private val materials = mutableListOf<String>()
+    protected val materials = mutableListOf<String>()
 
-    fun addMaterial(material: String) {
-        materials.add(material)
-    }
+    abstract fun addMaterial(material: String)
 
     fun extractMaterial(): List<String> {
         val extracted = materials.toList()
@@ -21,55 +20,54 @@ abstract class Materials {
     }
 }
 
-// Класс ExtractFirst - извлекает первый элемент
-class ExtractFirst : Materials() {
-    fun extract(): String {
-        val extracted = extractMaterial()
-        if (extracted.isEmpty()) {
-            return ""
-        }
-        if (extracted.size == 1) {
-            return extracted[0]
-        }
-        for (i in 1 until extracted.size) {
-            addMaterial(extracted[i])
-        }
-        return extracted[0]
+// Первый подкласс — добавляет строку на дно контейнера
+class BottomInsertionContainer : Materials() {
+    override fun addMaterial(material: String) {
+        materials.add(0, material)
     }
 }
 
-// Класс ExtractLast - извлекает последний элемент
-class ExtractLast : Materials() {
-    fun extract(): String {
-        val extracted = extractMaterial()
-        if (extracted.isEmpty()) {
-            return ""
+// Второй подкласс — добавляет список строк поочерёдно с существующими
+class AlternatingInsertionContainer : Materials() {
+    fun addMaterials(materialsList: List<String>) {
+        materialsList.forEachIndexed { index, material ->
+            val insertIndex = index * 2
+            if (insertIndex <= materials.size) {
+                materials.add(insertIndex, material)
+            } else {
+                materials.add(material) // Добавляем в конец, если индекс превышает размер списка
+            }
         }
-        if (extracted.size == 1) {
-            return extracted[0]
-        }
-        for (i in 0 until extracted.size - 1) {
-            addMaterial(extracted[i])
-        }
-        return extracted.last()
+    }
+
+    override fun addMaterial(material: String) {
+        // Метод оставлен пустым, поскольку в этом подклассе используются списки
     }
 }
 
-// Класс ExtractMiddle - извлекает средний элемент
-class ExtractMiddle : Materials() {
-    fun extract(): String {
-        val extracted = extractMaterial()
-        if (extracted.isEmpty()) {
-            return ""
-        }
-        if (extracted.size == 1) {
-            return extracted[0]
-        }
-        val middleIndex = extracted.size / 2
-        for (i in extracted.indices) {
-            if (i == middleIndex) continue
-            addMaterial(extracted[i])
-        }
-        return extracted[middleIndex]
+
+
+
+// Третий подкласс — добавляет элементы в алфавитном порядке
+class AlphabeticalInsertionContainer : Materials() {
+    override fun addMaterial(material: String) {
+        materials.add(material)
+        materials.sort()
     }
 }
+
+// Четвёртый подкласс — добавляет ключи в начало, а значения в конец
+class DictionaryInsertionContainer : Materials() {
+    fun addMaterialsFromDictionary(dictionary: Map<String, String>) {
+        for ((key, value) in dictionary) {
+            materials.add(0, key)
+            materials.add(value)
+        }
+    }
+
+    override fun addMaterial(material: String) {
+        // Метод оставлен пустым, так как используется словарь
+    }
+}
+
+
