@@ -10,12 +10,16 @@ class InkjetPrinter : Printer() {
         Pair(Colors.YELLOW, Background.BLUE)
     )
 
+    private var index = 0
+
     override fun printText(text: String) {
-        var index = 0
-        processText(text) { word ->
-            val (textColor, bgColor) = colorPairs[index % colorPairs.size]
-            print("$textColor$bgColor$word${Colors.RESET} ")
-            index++
-        }
+        index = 0 // Сброс индекса перед печатью текста
+        processText(text)
+    }
+
+    override fun handleWord(word: String) {
+        val (textColor, bgColor) = colorPairs[index % colorPairs.size]
+        print("$textColor$bgColor$word${Colors.RESET} ")
+        index++
     }
 }
