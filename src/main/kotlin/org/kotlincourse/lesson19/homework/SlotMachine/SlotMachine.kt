@@ -6,7 +6,7 @@ class SlotMachine {
     val model: String = "SuperSlot 3000" // Модель автомата
     var presenceOfJoystick: Boolean = true // Наличие джойстика
     val owner: String = "Casino Owner" // Владелец автомата
-    val supportPhone: String = "+1-800-123-4567" // Телефон поддержки
+    val supportPhone: String = "+382-068-123-4567" // Телефон поддержки
 
     // Приватные поля, определяющие внутреннее состояние автомата
     private var included: Boolean = false // Включен ли автомат
