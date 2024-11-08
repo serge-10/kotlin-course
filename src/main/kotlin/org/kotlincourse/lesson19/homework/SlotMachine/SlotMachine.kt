@@ -3,32 +3,34 @@ package org.sergei.org.kotlincourse.lesson19.homework.SlotMachine
 class SlotMachine {
     // Публичные поля с фиксированными значениями
     val color: String = "Red" // Цвет автомата
-    val model: String = "SuperSlot 3000" // Модель автомата
+    val model: String = "SuperSlot" // Модель автомата
     var presenceOfJoystick: Boolean = true // Наличие джойстика
-    val owner: String = "Casino Owner" // Владелец автомата
-    val supportPhone: String = "+382-068-123-4567" // Телефон поддержки
+
+
 
     // Приватные поля, определяющие внутреннее состояние автомата
     private var included: Boolean = false // Включен ли автомат
     private var osLoaded: Boolean = false // Загружена ли ОС
     private var balanceOfProceeds: Float = 0.0f // Баланс вырученных средств
     private val listOfAvailableGames: MutableList<String> = mutableListOf("Poker", "Blackjack", "Slots") // Список доступных игр
+    private var supportPhone: String = "+382-068-123-4567" // Телефон поддержки
+    private var owner: String = "Casino" // Владелец автомата
 
     // Метод для включения автомата
     fun turnOn() {
         included = true
-        println("Автомат включен.")
+        downloadOS()
     }
 
     // Метод для выключения автомата
     fun turnOff() {
+        shutDownOS()
         included = false
-        osLoaded = false // ОС также завершает работу при выключении
-        println("Автомат выключен.")
+
     }
 
     // Метод для загрузки операционной системы
-    fun downloadOS() {
+    private fun downloadOS() {
         if (included) {
             osLoaded = true
             println("Операционная система загружена.")
@@ -38,7 +40,7 @@ class SlotMachine {
     }
 
     // Метод для завершения работы операционной системы
-    fun shutDownOS() {
+    private fun shutDownOS() {
         if (osLoaded) {
             osLoaded = false
             println("Операционная система завершила работу.")
@@ -89,7 +91,8 @@ class SlotMachine {
     }
 
     // Приватный метод для открытия сейфа и выдачи наличных
-    private fun openSafeGiveOutCash() {
+     fun openSafeGiveOutCash() {
+
         println("Сейф открыт. Деньги выданы.")
     }
 }
