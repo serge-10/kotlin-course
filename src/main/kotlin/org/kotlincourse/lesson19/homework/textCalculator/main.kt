@@ -4,8 +4,25 @@ fun main() {
     val calculator = Calculator()
     calculator.addOperation(Addition())
     calculator.addOperation(Subtraction())
-    // Можно добавить другие операции, например, умножение или деление.
+    calculator.addOperation(Multiplication())
+    calculator.addOperation(Division())
+    calculator.addOperation(Modulus())
 
-    val expression = "5 + 3"
-    println("Результат: ${calculator.calculate(expression)}")  // Выведет: Результат: 8.0
+    println(calculator.calculate("2 + 4"))
+    println(calculator.calculate("5.5 * 2"))
+    println(calculator.calculate("Привет + Мир"))
+    println(calculator.calculate("Привет * 2"))
+    println(calculator.calculate("Привет * 7.6"))
+    println(calculator.calculate("22 - 2"))
+    println(calculator.calculate("3 % 1"))
+    println(calculator.calculate("2 % мир"))
+    println(calculator.calculate("Привет % 2"))
+    println(calculator.calculate("1 * Мир"))
+    println(calculator.calculate("11 / Мир"))
+    println(calculator.calculate("32 / 4"))
+    println(calculator.calculate("14 / 0"))
+    println(calculator.calculate("1 + мир"))
+    println(calculator.calculate("10 - Мир"))
+    println(calculator.calculate("10 : 1"))
+    println(calculator.calculate("Привет - Мир"))
 }

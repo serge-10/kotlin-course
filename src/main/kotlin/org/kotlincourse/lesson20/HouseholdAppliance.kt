@@ -35,25 +35,25 @@ abstract class HouseholdAppliance(val brand: String):Powerabie {
     }
 }
 
-class Microwave(brand: String) : HouseholdAppliance(brand) {
-    override val applianceType: String = "Микроволновая печь"
-
-    override fun operate() {
-        if (isPoweredOn) {
-            println("Готовим еду в микроволновке от $brand.")
-            performMaintenance()
-        } else {
-            println("Микроволновая печь от $brand не включена. Пожалуйста, включите ее.")
-        }
-    }
-
-    override fun performMaintenance() {
-        super.performMaintenance()
-        println("Чистка микроволновой печи от $brand.")
-    }
-}
-fun main(){
-    val microwave = Microwave("Samsung")
-    microwave.powerOn()
-    microwave.operate()
-}
+//class Microwave(brand: String) : HouseholdAppliance(brand) {
+//    override val applianceType: String = "Микроволновая печь"
+//
+//    override fun operate() {
+//        if (isPoweredOn) {
+//            println("Готовим еду в микроволновке от $brand.")
+//            performMaintenance()
+//        } else {
+//            println("Микроволновая печь от $brand не включена. Пожалуйста, включите ее.")
+//        }
+//    }
+//
+//    override fun performMaintenance() {
+//        super.performMaintenance()
+//        println("Чистка микроволновой печи от $brand.")
+//    }
+//}
+//fun main(){
+//    val microwave = Microwave("Samsung")
+//    microwave.powerOn()
+//    microwave.operate()
+//}
