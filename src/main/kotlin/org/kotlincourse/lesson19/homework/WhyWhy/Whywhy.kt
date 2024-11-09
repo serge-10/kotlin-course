@@ -97,9 +97,9 @@ class ChildrenClass(
     }
 
     // Добавляем метод для изменения `protectedField` из `main()`.
-    fun setProtectedField(value: String) {
-        protectedField = value
-    }
+//    fun setProtectedField(value: String) {
+//        protectedField = value
+//    }
 
     // Добавляем метод для изменения `privateField` из `main()`.
     fun setPrivateField(value: String) {

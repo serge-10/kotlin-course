@@ -25,9 +25,9 @@ fun main() {
 
     // Поле protectedField изменить напрямую нельзя, так как оно `protected`
     // Однако, мы можем изменить его через метод setProtectedField() в ChildrenClass.
-    child.setProtectedField("Новое значение для protectedField")
-    println("\nЗначение protectedField после изменения через setProtectedField():")
-    println(child.getAll())  // Выводит все поля, включая обновленное protectedField
+//    child.setProtectedField("Новое значение для protectedField")
+//    println("\nЗначение protectedField после изменения через setProtectedField():")
+//    println(child.getAll())  // Выводит все поля, включая обновленное protectedField
 
     // Поле privateField недоступно напрямую из main, так как оно `private` в BaseClass
     // Но мы можем изменить его через метод setPrivateField() в ChildrenClass

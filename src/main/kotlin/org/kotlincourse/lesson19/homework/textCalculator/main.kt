@@ -2,12 +2,6 @@ package org.sergei.org.kotlincourse.lesson19.homework.textCalculator
 
 fun main() {
     val calculator = Calculator()
-    calculator.addOperation(Addition())
-    calculator.addOperation(Subtraction())
-    calculator.addOperation(Multiplication())
-    calculator.addOperation(Division())
-    calculator.addOperation(Modulus())
-
     println(calculator.calculate("2 + 4"))
     println(calculator.calculate("5.5 * 2"))
     println(calculator.calculate("Привет + Мир"))
