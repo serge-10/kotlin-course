@@ -7,6 +7,6 @@ class ListHolder<T>(private val list: MutableList<T>) {
     }
 
     fun getElements(): List<T> {         // Метод для получения всех элементов списка.
-        return list                      // Возвращаем неизменяемую версию списка.
+        return list.toList()                      // Возвращаем неизменяемую версию списка.
     }
 }
