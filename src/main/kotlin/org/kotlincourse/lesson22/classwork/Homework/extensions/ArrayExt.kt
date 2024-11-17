@@ -1,4 +1,4 @@
-package org.sergei.org.kotlincourse.lesson22.classwork.Homework
+package org.sergei.org.kotlincourse.lesson22.classwork.Homework.extensions
 
 // 1. Функция-расширение для массива чисел
 fun Array<Int>.toMinMaxPair(): Pair<Int, Int> {

@@ -1,4 +1,4 @@
-package org.sergei.org.kotlincourse.lesson22.classwork.Homework
+package org.sergei.org.kotlincourse.lesson22.classwork.Homework.extensions
 
 fun String.spellOutWithAuthors(authors: List<String>) {
     // Проверяем, что список авторов не пуст

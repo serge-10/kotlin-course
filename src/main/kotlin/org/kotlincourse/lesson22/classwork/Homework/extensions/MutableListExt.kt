@@ -1,4 +1,4 @@
-package org.sergei.org.kotlincourse.lesson22.classwork.Homework
+package org.sergei.org.kotlincourse.lesson22.classwork.Homework.extensions
 
 // 3. Функция-расширение для MutableList с дженериком
 fun <T> MutableList<T>.updateOrRetrieve(element: T?, index: Int): T? {

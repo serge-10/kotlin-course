@@ -1,4 +1,4 @@
-package org.sergei.org.kotlincourse.lesson22.classwork.Homework
+package org.sergei.org.kotlincourse.lesson22.classwork.Homework.extensions
 
 fun main() {
     // 1. Функция для массива

@@ -1,4 +1,4 @@
-package org.sergei.org.kotlincourse.lesson22.classwork.Homework
+package org.sergei.org.kotlincourse.lesson22.classwork.Homework.extensions
 
 fun <T, R> Pair<T?,R?>.revert(): Pair<R?, T?> {
     return this.second to this.first

@@ -1,4 +1,4 @@
-package org.sergei.org.kotlincourse.lesson22.classwork.Homework
+package org.sergei.org.kotlincourse.lesson22.classwork.Homework.extensions
 
 // 5. Функция-расширение для Long?, возвращающая строку
 fun Long?.toFormattedString(): String {

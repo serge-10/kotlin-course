@@ -1,4 +1,4 @@
-package org.sergei.org.kotlincourse.lesson22.classwork.Homework
+package org.sergei.org.kotlincourse.lesson22.classwork.Homework.extensions
 
 // 2. Функция-расширение для класса Char?, которая принимает три аргумента
 fun Char?.processChar(arg1: Int, arg2: Int, arg3: Boolean) {

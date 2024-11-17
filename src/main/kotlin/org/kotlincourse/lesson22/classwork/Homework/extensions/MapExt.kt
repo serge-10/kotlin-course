@@ -1,4 +1,4 @@
-package org.sergei.org.kotlincourse.lesson22.classwork.Homework
+package org.sergei.org.kotlincourse.lesson22.classwork.Homework.extensions
 
 // 4. Функция-расширение для словаря Map<K, List<K>>?, которая возвращает другой словарь
 fun <T> Map<T, List<T>>?.returnMapGenericNull(arg: Number): Map<String, T?>? {
