@@ -38,8 +38,8 @@ fun main() {
 
     //пидмаркоз
     println("пидмаркоз")
-    val word = "пидмаркоз"
-    val authors = listOf("user1", "user2", "user3")
+    val word = "Гитлер"
+    val authors = listOf("user1", "user2", )
 
     // Вызов метода расширения
     word.spellOutWithAuthors(authors)
