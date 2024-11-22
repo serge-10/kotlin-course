@@ -88,18 +88,10 @@ fun sumIntOrDoubleValues(list: List<Any?>): Double {
 // Если приведение неудачно, должно быть выведено сообщение об ошибке,
 // не прерывая выполнение программы.
 
-fun tryCastToListAndPrint(parameter3: Any?){
-    val list = parameter3 as? List<*>
+fun tryCastToListAndPrint(parameter3: Any){
+    (parameter3 as? List<*>)?.forEach {
+        val result = (it as? String) ?: "$it не является строкой."
+        println(result)
+     } ?: println("$parameter3 не является списком.")
 
-    if (list != null) {
-        for (item in list) {
-            if (item is String) {
-                println(item)
-            } else {
-                println("$item не является строкой.")
-            }
-        }
-    } else {
-        println("$parameter3 не является списком.")
-    }
 }
