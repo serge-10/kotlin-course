@@ -19,7 +19,7 @@ fun Map<List<Any?>, Set<Any?>>.processData(arg: Any?): String {
 
 fun main() {
     // Создай аналогичную анонимную функцию.
-    val function71 = fun Map<List<Any?>, Set<Any?>>.processData(arg: Any?): String {
+    val function71 = fun Map<List<Any?>, Set<Any?>>.(arg: Any?): String {
         println("Аргумент: $arg")
         for ((k, v) in this) {
             println("Ключ: ${k.toString()}, Значение: ${v.toString()}")
@@ -28,29 +28,24 @@ fun main() {
             .joinToString(", ")
     }
 
-    // Создай аналогичное лямбда-выражение с указанием типа.
-    val function72: Map<List<Any?>, Set<Any?>>.(arg: Any?) -> String = { arg ->
-        println("Аргумент: $arg")
-        for ((k, v) in this) {
-            println("Ключ: ${k.toString()}, Значение: ${v.toString()}")
-        }
-        return this.map { (k, v) -> k.toString() + v.toString() }
-            .joinToString(", ")
-    }
-
-    // Создай лямбда-выражение без указания типа.
-    val function73 = { arg: Any? ->
-        println("Аргумент: $arg")
-        for ((k, v) in this) {
-            println("Ключ: ${k.toString()}, Значение: ${v.toString()}")
-        }
-         return this.map { (k, v) -> k.toString() + v.toString() }
-            .joinToString(", ")
-    }
-
-
+//    // Создай аналогичное лямбда-выражение с указанием типа.
+//    val function72: Map<List<Any?>, Set<Any?>>.(arg: Any?) -> String = { arg ->
+//        println("Аргумент: $arg")
+//        for ((k, v) in this) {
+//            println("Ключ: ${k.toString()}, Значение: ${v.toString()}")
+//        }
+//        return this. { (k, v) -> k.toString() + v.toString() }
+//            .joinToString(", ")
+//    }
+//
+//    // 4. Лямбда-выражение без указания типа
+//    val function73 = { arg: Any? ->
+//        println("Аргумент: $arg")
+//        for ((k, v) in this) {
+//            println("Ключ: ${k.toString()}, Значение: ${v.toString()}")
+//        }
+//         this.map { (k, v) -> k.toString() + v.toString() }
+//            .joinToString(", ")
+//    }
+//
 }
-
-
-
-
