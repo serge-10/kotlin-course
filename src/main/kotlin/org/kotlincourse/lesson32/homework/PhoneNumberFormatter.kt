@@ -15,6 +15,6 @@ class PhoneNumberFormatter {
             else -> throw IllegalArgumentException("Invalid phone number prefix")
         }
 
-        return "+7 (${normalizedInput.substring(1, 4)}) ${normalizedInput.substring(4, 7)}-${normalizedInput.substring(7, 9)}-${normalizedInput.substring(9)}"
+        return "+7 (${normalizedInput.substring(1, 4)})" + " ${normalizedInput.substring(4, 7)}-${normalizedInput.substring(7, 9)}-${normalizedInput.substring(9)}"
     }
 }
